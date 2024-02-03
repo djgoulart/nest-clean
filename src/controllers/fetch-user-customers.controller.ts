@@ -7,12 +7,12 @@ import {
   UsePipes,
 } from '@nestjs/common'
 
-import { PrismaService } from 'src/prisma/prisma.service'
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
-import { CurrentUser } from 'src/auth/current-user.decorator'
-import { UserPayload } from 'src/auth/jwt.strategy'
+import { PrismaService } from '@/prisma/prisma.service'
+import { JwtAuthGuard } from '@/auth/jwt-auth.guard'
+import { CurrentUser } from '@/auth/current-user.decorator'
+import { UserPayload } from '@/auth/jwt.strategy'
 import { z } from 'zod'
-import { ZodValidationPipe } from 'src/pipes/zod-validation-pipes'
+import { ZodValidationPipe } from '@/pipes/zod-validation-pipes'
 
 const queryParamsSchema = z.object({
   page: z

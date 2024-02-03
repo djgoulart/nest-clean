@@ -8,11 +8,11 @@ import {
 } from '@nestjs/common'
 import { z } from 'zod'
 
-import { PrismaService } from 'src/prisma/prisma.service'
-import { ZodValidationPipe } from 'src/pipes/zod-validation-pipes'
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
-import { CurrentUser } from 'src/auth/current-user.decorator'
-import { UserPayload } from 'src/auth/jwt.strategy'
+import { PrismaService } from '@/prisma/prisma.service'
+import { ZodValidationPipe } from '@/pipes/zod-validation-pipes'
+import { JwtAuthGuard } from '@/auth/jwt-auth.guard'
+import { CurrentUser } from '@/auth/current-user.decorator'
+import { UserPayload } from '@/auth/jwt.strategy'
 
 const createCustomerBodySchema = z.object({
   name: z.string(),
