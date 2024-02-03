@@ -31,7 +31,14 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "name": "Joe Company",
+  "name": "Bubble Company",
   "contact": "John Doe",
   "phone": "+55 62 99999-9999"
 }
+
+###
+
+# @name list_user_customers
+GET {{baseUrl}}/customers
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
