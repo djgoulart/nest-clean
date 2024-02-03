@@ -14,6 +14,7 @@ model User {
   password      String
   createdAt     DateTime       @default(now()) @map("created_at")
   serviceOrders ServiceOrder[]
+  customers     Customer[]
 
   @@map("users")
 }
@@ -23,9 +24,12 @@ model Customer {
   name          String
   contact       String
   phone         String
+  serviceOrders ServiceOrder[]
+  userId        String         @map("user_id")
   createdAt     DateTime       @default(now()) @map("created_at")
   updatedAt     DateTime       @updatedAt @map("updated_at")
-  serviceOrders ServiceOrder[]
+
+  owner User @relation(fields: [userId], references: [id])
 
   @@map("customers")
 }
