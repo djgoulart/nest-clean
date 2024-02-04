@@ -8,43 +8,11 @@ datasource db {
 }
 
 model User {
-  id            String         @id @default(uuid())
-  name          String
-  email         String         @unique
-  password      String
-  createdAt     DateTime       @default(now()) @map("created_at")
-  serviceOrders ServiceOrder[]
-  customers     Customer[]
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
 
   @@map("users")
-}
-
-model Customer {
-  id            String         @id @default(uuid())
-  name          String
-  contact       String
-  phone         String
-  serviceOrders ServiceOrder[]
-  userId        String         @map("user_id")
-  createdAt     DateTime       @default(now()) @map("created_at")
-  updatedAt     DateTime       @updatedAt @map("updated_at")
-
-  owner User @relation(fields: [userId], references: [id])
-
-  @@map("customers")
-}
-
-model ServiceOrder {
-  id          String   @id @default(uuid())
-  description String
-  customerId  String   @map("customer_id")
-  userId      String   @map("user_id")
-  ownerId     String   @map("owner_id")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
-
-  customer  Customer @relation(fields: [customerId], references: [id])
-  createdBy User     @relation(fields: [userId], references: [id])
-
-  @@map("service_orders")
 }
